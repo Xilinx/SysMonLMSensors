@@ -78,7 +78,6 @@ static int xsysmoni2c_probe(struct i2c_client *client, const struct i2c_device_i
 	i2c_set_clientdata(client, data);
 	data->client = client;
 	data->temp[0] = 0;
-	
 	data->hwmon_dev = hwmon_device_register_with_info(&client->dev, client->name, data, &xsysmoni2c_chip_info, NULL);
 	if (IS_ERR(data->hwmon_dev)) {
 		kfree(data);
