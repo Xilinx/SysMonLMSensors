@@ -114,6 +114,7 @@ static umode_t xsysmoni2c_is_visible(const void *data, enum hwmon_sensor_types t
 static int xsysmoni2c_read(struct device *dev, enum hwmon_sensor_types type,
 		     u32 attr, int channel, long *val)
 {
+	int ret;
 	struct i2c_client *client = to_i2c_client(dev);
 	struct xsysmoni2c_data *data = i2c_get_clientdata(client);
 	char write_data[8]= {0x00, 0x00, 0x00, 0x00, 0x0c, 0x04, 0x4, 0x00};
@@ -124,8 +125,16 @@ static int xsysmoni2c_read(struct device *dev, enum hwmon_sensor_types type,
 		return -EINVAL;
 	}
 	
-	i2c_master_send(data->client, write_data, 8);
-	i2c_master_recv(data->client, read_data, 4);	
+	ret = i2c_master_send(data->client, write_data, 8);
+	if (ret < 0) {
+		return ret;
+	}
+
+	ret = i2c_master_recv(data->client, read_data, 4);
+	if (ret < 0) {
+		return ret;
+	}
+
 	raw = ((read_data[3] << 24) | (read_data[2] << 16) | (read_data[1] << 8) | read_data[0]);
 	/* convert to millicelcius */
 	*val = ((raw & 0x8000U) ? -(XSYSMONI2C_2COMP(raw)) : raw) * 1000 / XSYSMONI2C_PROC_DENOM;
