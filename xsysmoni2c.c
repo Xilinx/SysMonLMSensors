@@ -1,3 +1,7 @@
+/******************************************************************************
+* Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
+* SPDX-License-Identifier: GPLv2
+******************************************************************************/
 #include <linux/module.h>
 #include <linux/i2c.h>
 #include <linux/hwmon.h>
