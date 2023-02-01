@@ -1,3 +1,11 @@
+Valid-License-Identifier: GPLv2
+SPDX-URL: https://spdx.org/licenses/GPL-2.0-or-later.html
+Usage-Guide:
+  To use the GPLv2 License put the following SPDX tag/value pair into a
+  comment according to the placement guidelines in the licensing rules
+  documentation:
+    SPDX-License-Identifier: GPLv2
+License-Text:
 		    GNU GENERAL PUBLIC LICENSE
 		       Version 2, June 1991
 
@@ -339,4 +347,8 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 
-Copyright (C) 2022 FRAMOS.
+Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.Advanced Micro Devices, Inc. All Rights Reserved.
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
